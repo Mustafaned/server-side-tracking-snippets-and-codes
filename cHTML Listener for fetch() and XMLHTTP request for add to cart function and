@@ -1,0 +1,30 @@
+<script>
+(function() {
+
+  var oldFetch = window.fetch;
+  window.fetch = function() {
+    var args = arguments;
+
+    if(args[0] && args[0].toString().toLowerCase().indexOf('cart') > -1){
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'smart_add_to_cart'
+      });
+    }
+
+    return oldFetch.apply(this, arguments);
+  };
+
+  var oldOpen = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function() {
+    if(arguments[1] && arguments[1].toLowerCase().indexOf('cart') > -1){
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'smart_add_to_cart'
+      });
+    }
+    return oldOpen.apply(this, arguments);
+  };
+
+})();
+</script>
