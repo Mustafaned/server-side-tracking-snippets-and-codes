@@ -1,0 +1,16 @@
+<script>
+(function(){
+
+  if (typeof fbq !== "function") return;
+
+  fbq('trackCustom', 'youtube_video_{{Video Status}}', {
+    video_title: '{{Video Title}}',
+    video_percent: '{{Video Percent}}',
+    video_duration: '{{Video Duration}}',
+    video_current_time: '{{Video Current Time}}',
+    page_url: '{{Page URL}}',
+    page_title: '{{Page Title}}'
+  });
+
+})();
+</script>
