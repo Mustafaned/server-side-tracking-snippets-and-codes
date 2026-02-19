@@ -1,0 +1,24 @@
+<script>
+(function(){
+
+  window.dataLayer = window.dataLayer || [];
+
+  var status = '{{Video Status}}';
+  var percent = '{{Video Percent}}';
+  var title = '{{Video Title}}';
+
+  /* Prevent duplicate firing */
+  if(window.lastVideoEvent === status + percent + title) return;
+  window.lastVideoEvent = status + percent + title;
+
+  window.dataLayer.push({
+    event: 'elite_video_event',
+    video_status: status,
+    video_percent: percent,
+    video_title: title,
+    video_duration: '{{Video Duration}}',
+    video_current_time: '{{Video Current Time}}'
+  });
+
+})();
+</script>
