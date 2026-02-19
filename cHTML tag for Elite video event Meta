@@ -1,0 +1,11 @@
+<script>
+if(typeof fbq === 'function'){
+  fbq('trackCustom','elite_video_{{video_status}}',{
+    video_title:'{{video_title}}',
+    video_percent:'{{video_percent}}',
+    video_duration:'{{video_duration}}',
+    page_url:'{{Page URL}}',
+    page_title:'{{Page Title}}'
+  });
+}
+</script>
