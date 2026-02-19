@@ -1,0 +1,14 @@
+function() {
+  var products = {{Ecommerce Items}};
+
+  return products.map(function(product) {
+    return {
+      "id": product.item_id,
+      "title": product.item_name,
+      "item_price": product.price,
+      "brand": product.item_brand,
+      "quantity": product.quantity || 1,
+      "category": product.item_category
+    };
+  });
+}
